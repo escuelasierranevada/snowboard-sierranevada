@@ -27,8 +27,9 @@ const posts = {
   },
 };
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = posts[params.slug as keyof typeof posts];
+export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+  const { slug } = params;
+  const post = posts[slug as keyof typeof posts];
   if (!post) return notFound();
   return (
     <section className="container mx-auto py-12 px-4 max-w-3xl">
