@@ -27,10 +27,8 @@ const posts = {
   },
 };
 
-type Props = { params: { slug: string } };
-
-export default function BlogPostPage({ params }: Props) {
-  const { slug } = params;
+export default function BlogPostPage(props: any) {
+  const slug = props.params.slug;
   const post = posts[slug as keyof typeof posts];
   if (!post) return notFound();
   return (
